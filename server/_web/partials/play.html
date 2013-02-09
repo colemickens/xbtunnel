@@ -1,0 +1,83 @@
+<header style="border:1px solid #red; background-color:#2BA6CB">
+	<br/>
+
+	<div class="row">
+		<div class="twelve columns" style="">
+			<div>
+				<h1 style="font-weight:300; color: white">
+					play <a ng-click="revealMakeRoom()" style="">.</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="six columns" style="">
+			<input type="text" ng-model="gameFilter" placeholder="search"></input>
+		</div>
+	</div>
+	<br/>
+	<br/>
+</header>
+
+<!-- make sure we complete the checks -->
+
+
+<!-- show this once they've passed the checks -->
+<div class="row">
+	<div class="twelve columns">
+		<ul class="room-list">
+			<li ng-repeat="room in rooms | filter:gameFilter" class="room-entry">
+				{{room.id}} <br/>
+				{{room.name}} <br/>
+				{{room.description}} <br/>
+				{{room.creator_id}} <br/>
+				{{room.retail_game_id}} <br/>
+				{{room.users}} <br/>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="makeroom" class="reveal-modal large">
+	<div class="row">
+		<div class="twelve columns">
+			<h3>make room</h3>
+			<label>name:</label>
+			<input ng-model="makeroomform.name" type="text" />
+			<label>description:</label>
+			<input ng-model="makeroomform.description" type="text" />
+			<br/>
+			<a class="button" ng-click="makeRoom()">make room</a>
+		</div>
+	</div>
+	<a class="close-reveal-modal">&#215;</a>
+</div>
+
+<!-- login reveal dialog -->
+<div id="login" class="reveal-modal large">
+	<div class="row">
+		<div class="six columns">
+			<div style="padding: 5px">
+				<h3>register</h3>
+				<p>
+					nickname: <input ng-model="registerform.nickname" type="text" />
+					password: <input ng-model="registerform.password" type="text" />
+					<button ng:click="register()">register</button>
+				</p>
+				<p><a ng-click="register()">register</a></p>
+			</div>
+		</div>
+		<div class="six columns">
+			<div style="padding: 5px">
+				<h3>login</h3>
+				<p>
+					nickname: <input type="text" ng-model="loginform.nickname" />
+					password: <input type="text" ng-model="loginform.password" />
+					<button ng:click="login()">login</button>
+				</p>
+				<p><a ng-click="login()">login</a></p>
+			</div>
+		</div>
+	</div>
+</div>

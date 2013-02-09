@@ -1,0 +1,19 @@
+<div id="gameSelector">
+  <input ng-model="gameSearch.Name" />
+  <ul>
+    <li ng-repeat="game in games | filter:gameSearch">
+      {{game.Id}}: 
+      {{game.Name}}
+    </li>
+  </ul>
+</div>
+
+<div id="roomSelector">
+  <input ng-model="roomFilterQuery" />
+  <ul>
+    <li ng-repeat="room in rooms | filter:roomFilterQuery">
+      {{game.Id}}: 
+      {{game.Name}}
+    </li>
+  </ul>
+</div>
